@@ -1,0 +1,90 @@
+public void obliczFunkcjaRastrigina() {
+        for(int i = 0; i < n; i++) {
+            rastrigina[i] = 10 + Math.pow(wyniki[i], 2) - 10 * Math.cos(20 * Math.PI * wyniki[i]);
+        }
+    }
+
+    public double obliczIloscLiczbWZbiorze() {
+        return (b - a) * Math.pow(10, d) + 1;
+    }
+
+    public void wypiszFunkcjaRastrigina() {
+        System.out.println("Wyniki czesciowa dla funkcji rastrigina");
+        for(int i = 0; i < n; i++) {
+            System.out.println(rastrigina[i]);
+        }
+    }
+
+    public void wypelnijTabliceLosowo() {
+
+        Random random = new Random();
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < m; j++) {
+                binarny[i][j] = random.nextInt(2);
+            }
+        }
+    }
+
+    public void wypiszX() {
+
+        System.out.println("Wyniki dla X");
+        for(int i = 0; i < n; i++) {
+            System.out.println(wyniki[i]);
+        }
+    }
+
+    public void wypiszBinarny() {
+
+        System.out.println("Wynik binarny");
+        for(int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(binarny[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    public void wypiszDziesietny() {
+
+        System.out.println("Wynik dziesietny");
+        for(int i = 0; i < n; i++) {
+            System.out.println(dziesietny[i]);
+        }
+    }
+
+    public void binarnyNaDziesietny(int[][] binarny) {
+
+        for (int i =0; i < binarny.length;i++){
+            int sum = 0;
+            for (int j = binarny[i].length-1; j>= 0; j--){
+                sum += binarny[i][binarny[i].length-1-j]*(Math.pow(2, j));
+            }
+            dziesietny[i] = sum;
+        }
+    }
+
+    public void obliczX() {
+        for(int i = 0; i < n; i++) {
+            wyniki[i] = a + ((b-a) * dziesietny[i])/(Math.pow(2, m) - 1);
+        }
+    }
+
+
+
+            //na 3 punkty
+    //        int iloscLiczbWZbiorze = (int)obliczIloscLiczbWZbiorze();
+    //        m = (int)obliczM(iloscLiczbWZbiorze);
+    //        System.out.println("m: " + m);
+    //        binarny = new int[n][m];
+    //        dziesietny = new int[n];
+    //        wyniki = new double[n];
+    //        rastrigina = new double[n];
+
+    //        wypelnijTabliceLosowo();
+    //        wypiszBinarny();
+    //        binarnyNaDziesietny(binarny);
+    //        wypiszDziesietny();
+    //        obliczX();
+    //        wypiszX();
+    //        obliczFunkcjaRastrigina();
+    //        wypiszFunkcjaRastrigina();
